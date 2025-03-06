@@ -1,0 +1,41 @@
+window {
+    background-color: darkslategrey;
+/*    color: red;*/
+}
+
+button {
+    background-color: darkslategrey;
+    color: white;
+    font: 32px "monospace";
+    border: none;
+    border-radius: 0px;
+}
+
+button:hover {
+    color:red;
+    text-decoration: underline;
+}
+
+textview * {
+    background-color: darkslategrey;
+    color: khaki;
+    padding: 10px;
+}
+
+.view text selection {
+    background-color: grey;
+    color: white;
+}
+
+label {
+    background-color: grey;
+    color: darkslategrey;
+}
+
+entry {
+    background-color: darkslategrey;
+    color: khaki;
+    font: 24px "monospace";
+    border: 1px solid grey;
+    border-radius: 0px;
+}
