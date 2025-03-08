@@ -16,7 +16,7 @@ struct token_struct {
 };
 
 
-void parse_cmd(struct token_struct token, char* text, GtkTextBuffer* buffer);
+int parse_cmd(struct token_struct token, char* text, GtkTextBuffer* buffer);
 
 
 #endif

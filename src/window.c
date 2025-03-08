@@ -1,5 +1,7 @@
 #include "window.h"
 
+GtkApplication* app;
+GApplication* gapp;
 GtkWidget* text_view;
 GtkTextBuffer* buffer;
 
@@ -11,8 +13,12 @@ void on_cmd_enter(GtkWidget* _u, GtkWidget* entry) {
     char *text = g_strdup(entry_text);
 
     struct token_struct tokens;
-    parse_cmd(tokens, text, buffer);
+    int result = parse_cmd(tokens, text, buffer);
     g_free(text);
+
+    if(result == 1) {
+        g_application_quit(gapp);
+    }
 }
 
 
@@ -61,7 +67,6 @@ static void activate(GtkApplication* app) {
     gtk_container_set_border_width(GTK_CONTAINER(window), 10);
 
     GtkCssProvider *provider = gtk_css_provider_new ();
-    printf("%s", CSS);
     GFile *css_file = g_file_new_for_path(CSS);
     gtk_css_provider_load_from_file(provider, css_file, NULL);
     gtk_style_context_add_provider_for_screen(
@@ -139,10 +144,10 @@ static void activate(GtkApplication* app) {
 
 
 int main(int argc, char **argv) {
-    GtkApplication *app;
     int status;
 
     app = gtk_application_new("dev.qtpy.YALTE", G_APPLICATION_DEFAULT_FLAGS);
+    gapp = G_APPLICATION(app);
     g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
     status = g_application_run(G_APPLICATION(app), argc, argv);
     g_object_unref(app);

@@ -2,7 +2,7 @@
 
 
 
-void parse_cmd(struct token_struct tokens, char* text, GtkTextBuffer* buffer) {
+int parse_cmd(struct token_struct tokens, char* text, GtkTextBuffer* buffer) {
     char *delimiter = " ";
     int count = 0;
     char* token;
@@ -17,10 +17,6 @@ void parse_cmd(struct token_struct tokens, char* text, GtkTextBuffer* buffer) {
         }
         count++;
     }
-
-    char* help =    "[ ed | open ]  >   edits the listed file.......\n"
-                    "[ w  | save ]  >   writes the current file.....\n"
-                    "[ help | h  ]  >   display help................\n";
 
     if(strcmp(tokens.keyword, "ed") == 0 || strcmp(tokens.keyword, "open") == 0) {
         char* file_text = read_text_from_file(tokens.identifier);
@@ -38,12 +34,26 @@ void parse_cmd(struct token_struct tokens, char* text, GtkTextBuffer* buffer) {
 
         save_text_to_file(tokens.identifier, text);
     }
-    else if(strcmp(tokens.keyword, "help") == 0) {
-        printf("help:\n\n%s", help);
+    else if(strcmp(tokens.keyword, "theme") == 0) {
+        GtkCssProvider *provider = gtk_css_provider_new ();
+        GFile *css_file = g_file_new_for_path(tokens.identifier);
+
+        gtk_css_provider_load_from_file(provider, css_file, NULL);
+        gtk_style_context_add_provider_for_screen(
+            gdk_screen_get_default(),
+            GTK_STYLE_PROVIDER(provider),
+            GTK_STYLE_PROVIDER_PRIORITY_USER
+        );
+    }
+    else if(strcmp(tokens.keyword, "quit") == 0) {
+        printf("gracefully shutting down YALTE...");
+        return 1;
     }
     else {
         printf("Invalid cmd '%s': Try using 'help'!\n", tokens.keyword);
     }
+
+    return 0;
 }
 
 
