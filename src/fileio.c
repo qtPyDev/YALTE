@@ -2,26 +2,42 @@
 
 
 
-void save_text_to_file(char* text) {
+void save_text_to_file(char* path, char* text) {
     FILE *fptr;
     // make this take a param from the UI popup
-    fptr = fopen("hello_world.c", "w");
+    fptr = fopen(path, "w");
+    if(fptr == NULL) {
+        perror("(aborted)");
+        printf("%s", path);
+        return;
+    }
     fprintf(fptr, "%s", text);
     fclose(fptr);
 }
 
 
-void load_text_from_file() {
-    // make this take a param from the UI popup
-    // FILE *fptr;
-    // fptr = fopen("hello_world.c", "r");
+char* read_text_from_file(char* path) {
+    FILE *fptr;
+    char file_text[10000];
+    char* result;
 
-    // if(fptr == NULL) {
-    //     printf("Not able to open the file.");
-    // };
+    fptr = fopen(path, "r");
+    if(fptr == NULL) {
+        perror("(aborted)");
+        printf("%s", path);
+        return NULL;
+    }
 
-    // char* file_text;
+    fread(file_text, sizeof(int), sizeof(file_text), fptr);
 
-    // fgets(file_text, sizeof(file_text), fptr);
-    // printf("%s", file_text);
+    // Allocate memory for the result string and copy the contents
+    result = malloc(strlen(file_text) + 1);
+    if (result == NULL) {
+        fclose(fptr);
+        return NULL;
+    }
+    strcpy(result, file_text);
+
+    fclose(fptr);
+    return result;
 }

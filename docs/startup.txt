@@ -1,0 +1,17 @@
+welcome to YALTE...
+
+basic commands:
+[ ed | open ] {file}    >       edits the listed file.......
+[ w  | save ] {file}    >       writes the current file.....
+[ help | h  ]           >       display help................
+
+What is YALTE ?
+YALTE stands for "Yet Another Lightweight Text Editor" and is exactly what it says on the tin.
+
+!NOTE!:
+YALTE is a SIDE PROJECT maintained by myself as a means to further explore text editor writing, as well as to implement features that I would like to see from a text/code editor.
+
+Licensing:
+YALTE is FREE as in Free Open Source Software (FOSS) under the GNU GPL 3.0 License.
+
+i maintain that the Free Open Source movement is essential to a fair and equal future for engineers, students, faculty, hobbyists, and more.

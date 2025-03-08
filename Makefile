@@ -12,11 +12,12 @@ BUILD_DIR = build
 DIST_DIR = dist
 
 # define source files
-SRC_FILEiO = $(SRC_DIR)/fileio.c
-SRC_WINDOW = $(SRC_DIR)/window.c
+# SRC_FILEIO = $(SRC_DIR)/fileio.c
+# SRC_WINDOW = $(SRC_DIR)/window.c
 
 # define object files
 OBJ_FILEIO = $(BUILD_DIR)/fileio.o
+OBJ_CMD = $(BUILD_DIR)/cmd.o
 OBJ_WINDOW = $(BUILD_DIR)/window.o
 
 # define targets
@@ -26,7 +27,7 @@ TARGET = $(DIST_DIR)/YALTE.$(OUT_TYPE)
 
 all: $(TARGET)
 
-$(TARGET): $(OBJ_WINDOW) $(OBJ_FILEIO)
+$(TARGET): $(OBJ_WINDOW) $(OBJ_FILEIO) $(OBJ_CMD)
 	@mkdir -p $(BUILD_DIR)
 	$(CC) $^ $(LDFLAGS) -o $@
 
