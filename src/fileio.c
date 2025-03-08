@@ -18,7 +18,7 @@ void save_text_to_file(char* path, char* text) {
 
 char* read_text_from_file(char* path) {
     FILE *fptr;
-    char file_text[10000];
+    char file_text[100000];
     char* result;
 
     fptr = fopen(path, "r");
