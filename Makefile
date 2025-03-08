@@ -11,10 +11,6 @@ SRC_DIR = src
 BUILD_DIR = build
 DIST_DIR = dist
 
-# define source files
-# SRC_FILEIO = $(SRC_DIR)/fileio.c
-# SRC_WINDOW = $(SRC_DIR)/window.c
-
 # define object files
 OBJ_FILEIO = $(BUILD_DIR)/fileio.o
 OBJ_CMD = $(BUILD_DIR)/cmd.o

@@ -4,7 +4,7 @@
 
 void save_text_to_file(char* path, char* text) {
     FILE *fptr;
-    // make this take a param from the UI popup
+
     fptr = fopen(path, "w");
     if(fptr == NULL) {
         perror("(aborted)");
@@ -30,7 +30,6 @@ char* read_text_from_file(char* path) {
 
     fread(file_text, sizeof(int), sizeof(file_text), fptr);
 
-    // Allocate memory for the result string and copy the contents
     result = malloc(strlen(file_text) + 1);
     if (result == NULL) {
         fclose(fptr);
