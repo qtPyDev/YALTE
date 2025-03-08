@@ -16,10 +16,18 @@ exactly what it says on the tin.
 ## Features
 currently YALTE is in-development.
 
-### Upcoming Features
 - basic text editing capabilities
 - file saving and loading
 - opening a file from the cmdline
+- changing theme on the fly
+- in-editor cmdline
+
+### Upcoming Features
+ - syntax highlighting
+ - better cmdline parsing for files including cd/dir hopping
+ - project setups for easy filehopping inside a project
+ - split buffer tabbing
+ - search & replace
 
 ## Licensing
 YALTE is FREE as in Free Open Source Software (FOSS) under the 
