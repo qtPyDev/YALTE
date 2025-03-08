@@ -1,5 +1,8 @@
 # YALTE
 
+![image](media/yalte_theme00.png)
+![image](media/yalte_theme01.png)
+
 ## What is YALTE ?
 YALTE stands for "Yet Another Lightweight Text Editor" and is
 exactly what it says on the tin.
