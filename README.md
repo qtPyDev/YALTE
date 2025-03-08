@@ -1,6 +1,6 @@
 # YALTE
 
-![image](media/yalte_theme00.png) ![image](media/yalte_theme01.png)
+![image](media/yalte_theme00.png) 
 
 ## What is YALTE ?
 YALTE stands for "Yet Another Lightweight Text Editor" and is
@@ -10,6 +10,8 @@ exactly what it says on the tin.
 > YALTE is a SIDE PROJECT maintained by myself as a means to
 > further explore text editor writing, as well as to implement
 > features that I would like to see from a text/code editor.
+
+![image](media/yalte_theme01.png)
 
 ## Features
 currently YALTE is in-development.
